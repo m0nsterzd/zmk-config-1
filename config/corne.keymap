@@ -8,48 +8,63 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+// Layers
+#define COLEMAK 0
+#define MOD_ARR 1
+#define NAVIGAT 2
+#define FUN_NUM 3
+#define SYMBOLS 4
+
+// Keycodes
+# define LT_BSPC &lt MOD_ARR BSPC
+
+
 / {
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
+                colemak {
 // -----------------------------------------------------------------------------------------
 // |      |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  |      |
 // |      |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |      |
 // |      |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |      |
 //                    |  WM | BSP | TAB |   | ENT | SPC  | TAB |
+
                         bindings = <
    &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
    &none     &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &none
    &none     &kp Z &kp X &kp C &kp D &kp V   &kp K &kp H  &kp COMMA &kp DOT &kp FSLH    &none
-                    &kp LGUI &mo 1 &kp TAB   &kp RET &mo 2 &kp ESC
-                        >;
-                };
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |      |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |      |
-// |      | BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// |      |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &none      &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &none
-   &none      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &none
-   &none      &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &none
-                                        &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+                    &kp LGUI LT_BSPC &kp TAB   &kp RET &kp SPACE &kp ESC
                         >;
                 };
 
-                raise_layer {
+                mod_arr {
 // -----------------------------------------------------------------------------------------
-// |      |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |      |
-// |      |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |      |
-// |      |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |      |     |     |     |     |     |   |     |     |     |     |     |      |
+// |      |     |     |     | CAPS|     |   | LFT | DWN | UP  | RGT |     |      |
+// |      |     |     |     | NAV |     |   |     |     |     |     |     |      |
+//                    |     | DEL |     |   |     |     |     |
+
                         bindings = <
-   &none     &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &none
-   &none     &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT        &kp RBKT &kp BSLH &none
-   &none     &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC        &kp RBRC &kp PIPE &none
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &none      &none       &none       &none       &none       &none         &none    &none    &none  &none     &none &none
+   &none      &none       &none       &none       &kp CAPS    &none         &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
+   &none      &none       &none       &none       &mo NAVIGAT &none         &none    &none    &none  &none     &none &none
+                                      &none       &kp DEL     &none         &none    &none    &none
+                        >;
+                };
+
+                navigat {
+// -----------------------------------------------------------------------------------------
+// |      |     |     |     |     |     |   |     |     |     |     |     |      |
+// |      |     |     |     |     |     |   | HOME| PGDN| PGUP| END |     |      |
+// |      |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    |     |     |     |   |     |     |     |
+
+                        bindings = <
+   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
+   &none      &none       &none       &none       &none       &none         &kp HOME &kp PG_DN &kp PG_UP &kp END &none &none
+   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
+                                      &none       &none       &none         &none    &none     &none
                         >;
                 };
         };
