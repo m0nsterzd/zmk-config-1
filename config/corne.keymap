@@ -54,7 +54,7 @@
    &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
    &none     &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &none
    &none     &kp Z &kp X &kp C LT_D  &kp V   &kp K LT_H   &kp COMMA &kp DOT &kp FSLH    &none
-                    &wm_exposee_win  LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
+                    &lt FUN_NUM &wm_exposee_win  LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
                         >;
                 };
 
