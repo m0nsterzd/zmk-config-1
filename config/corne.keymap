@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/outputs.h>
 
 // Layers
 #define COLEMAK 0
@@ -26,6 +27,19 @@
 
 
 / {
+        macros {
+            wm_exposee_win: wm_exposee_win {
+                label = "Win10 Exposee";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LGUI>
+                    , <&macro_tap &kp TAB>
+                    , <&macro_release &kp LGUI>
+					;
+            };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -40,7 +54,7 @@
    &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
    &none     &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &none
    &none     &kp Z &kp X &kp C LT_D  &kp V   &kp K LT_H   &kp COMMA &kp DOT &kp FSLH    &none
-                    &kp LGUI LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
+                    &wm_exposee_win  LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
                         >;
                 };
 
