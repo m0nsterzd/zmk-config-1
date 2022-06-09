@@ -44,9 +44,7 @@
 				compatible = "zmk,behavior-hold-tap";
 				label = "Layer-tap the exposee macro";
 				#binding-cells = <2>;
-				tapping-term-ms = <150>;
-				quick-tap-ms = <0>;
-				flavor = "tap-preferred";
+				tapping-term-ms = <200>;
 				bindings = <&mo>, <&wm_exposee_win>;
 			};
 		};
