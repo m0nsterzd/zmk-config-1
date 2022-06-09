@@ -73,6 +73,16 @@
         };
 
         behaviors {
+            hrm: home_row_mods {
+                compatible = "zmk,behavior-hold-tap";
+                label = "Home Row Mods";
+                #binding-cells = <2>;
+                tapping-term-ms = <200>;
+                quick-tap-ms = <0>;
+                flavor = "tap-preferred";
+                bindings = <&kp>, <&kp>;
+            };
+
             lte: layer_tab_exposee {
                 compatible = "zmk,behavior-hold-tap";
                 label = "Layer-tap the exposee macro";
@@ -94,7 +104,7 @@
 
                         bindings = <
    &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
-   &none     &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &none
+   &none     &hrm LALT A &hrm LGUI R &hrm LCTRL S &hrm LSHFT T &kp G   &kp M &hrm RSHFT N  &hrm RCTRL E     &hrm RGUI I   &hrm LGUI O       &none
    &none     &kp Z &kp X &kp C LT_D  &kp V   &kp K LT_H   &kp COMMA &kp DOT &kp FSLH    &none
              &lte WM_WIN 0 LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
                         >;
