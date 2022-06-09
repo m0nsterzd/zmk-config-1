@@ -32,6 +32,8 @@
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Exposee";
                 #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <20>;
                 bindings
                     = <&macro_press &kp LGUI>
                     , <&macro_tap &kp TAB>
@@ -43,6 +45,8 @@
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Go To Previous Desktop";
                 #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <20>;
                 bindings
                     = <&macro_press &kp LCTRL>
                     , <&macro_press &kp LGUI>
@@ -56,6 +60,8 @@
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Go To Next Desktop";
                 #binding-cells = <0>;
+                wait-ms = <10>;
+                tap-ms = <20>;
                 bindings
                     = <&macro_press &kp LCTRL>
                     , <&macro_press &kp LGUI>
