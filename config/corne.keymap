@@ -14,6 +14,7 @@
 #define NAVIGAT 2
 #define FUN_NUM 3
 #define SYMBOLS 4
+#define WM_WIN  5
 
 // Keycodes
 #define LT_D &lt SYMBOLS D
@@ -28,26 +29,52 @@
 / {
         macros {
             wm_exposee_win: wm_exposee_win {
-                label = "Win10 Exposee";
                 compatible = "zmk,behavior-macro";
+                label = "Win10 Exposee";
                 #binding-cells = <0>;
                 bindings
                     = <&macro_press &kp LGUI>
                     , <&macro_tap &kp TAB>
                     , <&macro_release &kp LGUI>
-					;
+                    ;
+            };
+
+            wm_prev_desktop_win: wm_prev_desktop_win {
+                compatible = "zmk,behavior-macro";
+                label = "Win10 Go To Previous Desktop";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LCTRL>
+                    , <&macro_press &kp LGUI>
+                    , <&macro_tap &kp LEFT>
+                    , <&macro_release &kp LGUI>
+                    , <&macro_release &kp LCTRL>
+                    ;
+            };
+
+            wm_next_desktop_win: wm_next_desktop_win {
+                compatible = "zmk,behavior-macro";
+                label = "Win10 Go To Next Desktop";
+                #binding-cells = <0>;
+                bindings
+                    = <&macro_press &kp LCTRL>
+                    , <&macro_press &kp LGUI>
+                    , <&macro_tap &kp RIGHT>
+                    , <&macro_release &kp LGUI>
+                    , <&macro_release &kp LCTRL>
+                    ;
             };
         };
 
-		behaviors {
-			lte: layer_tab_exposee {
-				compatible = "zmk,behavior-hold-tap";
-				label = "Layer-tap the exposee macro";
-				#binding-cells = <2>;
-				tapping-term-ms = <200>;
-				bindings = <&mo>, <&wm_exposee_win>;
-			};
-		};
+        behaviors {
+            lte: layer_tab_exposee {
+                compatible = "zmk,behavior-hold-tap";
+                label = "Layer-tap the exposee macro";
+                #binding-cells = <2>;
+                tapping-term-ms = <200>;
+                bindings = <&mo>, <&wm_exposee_win>;
+            };
+        };
 
         keymap {
                 compatible = "zmk,keymap";
@@ -63,7 +90,7 @@
    &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
    &none     &kp A &kp R &kp S &kp T &kp G   &kp M &kp N  &kp E     &kp I   &kp O       &none
    &none     &kp Z &kp X &kp C LT_D  &kp V   &kp K LT_H   &kp COMMA &kp DOT &kp FSLH    &none
-             &lte FUN_NUM 0 LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
+             &lte WM_WIN 0 LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
                         >;
                 };
 
@@ -125,6 +152,21 @@
    &none      &kp EXCL    &none       &none       &none       &none         &kp DQT   &none     &kp LBKT &kp RBKT &kp PLUS  &none
    &none      &none       &none       &none       &none       &none         &kp TILDE &none     &kp LBRC &kp RBRC &kp PIPE  &none
                                       &none       &none       &none         &none     &none     &none
+                        >;
+                };
+
+                wm_win {
+// -----------------------------------------------------------------------------------------
+// |      |     |     |     |     |     |   |     |     |     |     |     |      |
+// |      |     |     |START|     |     |   |PRV_D|     |     |NXT_D|     |      |
+// |      |     |     |     |     |     |   |     |     |     |     |     |      |
+//                    |     |     |     |   |     |     |     |
+
+                        bindings = <
+   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
+   &none      &none       &none       &kp LGUI    &none       &none         &wm_prev_desktop_win &none   &none   &wm_next_desktop_win &none &none
+   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
+                                      &none       &none       &none         &none    &none     &none
                         >;
                 };
         };
