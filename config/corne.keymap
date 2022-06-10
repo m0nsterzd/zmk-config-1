@@ -14,20 +14,86 @@
 #define NAVIGAT 2
 #define FUN_NUM 3
 #define SYMBOLS 4
-#define WM_WIN  5
+#define COMPOSE 5
+#define WM_WIN  6
 
 // Keycodes
+#define xxxxx &none
+
+//  Layers
+//    Left
 #define LT_D &lt SYMBOLS D
 #define LT_BSPC &rep MOD_ARR BSPC
 #define LT_TAB &lt FUN_NUM TAB
-
+//    Right
 #define LT_H &lt SYMBOLS H
-#define LT_SPACE &rep MOD_ARR SPACE
 #define LT_RET &lt FUN_NUM RET
+#define LT_SPACE &rep MOD_ARR SPACE
+#define LT_ESC &lt COMPOSE ESC
 
 
 / {
         macros {
+		    ZMK_MACRO(AE,
+			    wait-ms = <10>;
+				tap-ms = <20>;
+				bindings
+				    = <&macro_press &kp RALT>
+                    , <&macro_tap &kp Q>
+                    , <&macro_release &kp RALT>
+                    ;
+            )
+
+		    ZMK_MACRO(SZ,
+			    wait-ms = <10>;
+				tap-ms = <20>;
+				bindings
+				    = <&macro_press &kp RALT>
+                    , <&macro_tap &kp S>
+                    , <&macro_release &kp RALT>
+                    ;
+            )
+
+			ZMK_MACRO(EE,
+			    wait-ms = <10>;
+				tap-ms = <20>;
+				bindings
+				    = <&macro_press &kp RALT>
+                    , <&macro_tap &kp E>
+                    , <&macro_release &kp RALT>
+                    ;
+            )
+
+			ZMK_MACRO(IE,
+			    wait-ms = <10>;
+				tap-ms = <20>;
+				bindings
+				    = <&macro_press &kp RALT>
+                    , <&macro_tap &kp I>
+                    , <&macro_release &kp RALT>
+                    ;
+            )
+
+			ZMK_MACRO(UE,
+			    wait-ms = <10>;
+				tap-ms = <20>;
+				bindings
+				    = <&macro_press &kp RALT>
+                    , <&macro_tap &kp Y>
+                    , <&macro_release &kp RALT>
+                    ;
+            )
+
+			ZMK_MACRO(OE,
+			    wait-ms = <10>;
+				tap-ms = <20>;
+				bindings
+				    = <&macro_press &kp RALT>
+                    , <&macro_tap &kp P>
+                    , <&macro_release &kp RALT>
+                    ;
+            )
+
             wm_exposee_win: wm_exposee_win {
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Exposee";
@@ -135,7 +201,7 @@
    &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
    &none     &hrm LALT A &hrm LGUI R &hrm LCTRL S &lhs LSHFT T &kp G   &kp M &rhs RSHFT N  &hrm RCTRL E     &hrm RGUI I   &hrm LGUI O       &none
    &none     &kp Z &kp X &kp C LT_D  &kp V   &kp K LT_H   &kp COMMA &kp DOT &kp FSLH    &none
-             &lte WM_WIN 0 LT_BSPC LT_TAB  LT_RET LT_SPACE &kp ESC
+             &lte WM_WIN 0 LT_BSPC LT_TAB  LT_RET LT_SPACE LT_ESC
                         >;
                 };
 
@@ -200,6 +266,22 @@
                         >;
                 };
 
+                compose {
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |     Ä      |            |            |            |            |          |            |            |            |     Ü      |     Ö      |
+//             |            |            |     ß      |            |            |          |            |            |     É      |     Í      |            |
+//             |            |            |            |            |            |          |            |            |            |            |            |
+//             --------------------------|            |            |            |          |            |            |            |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+
+                    bindings = <
+    xxxxx        &AE          &none        &none        &none        &none                   &none        &none        &none        &UE          &OE          xxxxx
+    xxxxx        &none        &none        &SZ          &none        &none                   &none        &none        &EE          &IE          &none        xxxxx
+    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+                                           &none        &none        &none                   &none        &none        &none
+                    >;
+                };
+
                 wm_win {
 // -----------------------------------------------------------------------------------------
 // |      |     |     |     |     |     |   |     |     |     |     |     |      |
@@ -214,5 +296,21 @@
                                       &none       &none       &none         &none    &none     &none
                         >;
                 };
+
+//		          <tmpl> {
+////             ------------------------------------------------------------------          ------------------------------------------------------------------
+////             |            |            |            |            |            |          |            |            |            |            |            |
+////             |            |            |            |            |            |          |            |            |            |            |            |
+////             |            |            |            |            |            |          |            |            |            |            |            |
+////             --------------------------|            |            |            |          |            |            |            |--------------------------
+////                                       ----------------------------------------          ---------------------------------------
+//
+//                        bindings = <
+//    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+//    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+//    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+//                                           &none        &none        &none                   &none        &none        &none
+//                        >;
+//                };
         };
 };
