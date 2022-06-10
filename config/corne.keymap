@@ -23,14 +23,18 @@
 //  Layers
 //    Left
 #define LT_D &lt SYMBOLS D
-#define LT_BSPC &rep MOD_ARR BSPC
+#define LT_BSPC &lt MOD_ARR BSPC
 #define LT_TAB &lt FUN_NUM TAB
 //    Right
 #define LT_H &lt SYMBOLS H
 #define LT_RET &lt FUN_NUM RET
-#define LT_SPACE &rep MOD_ARR SPACE
+#define LT_SPACE &lt MOD_ARR SPACE
 #define LT_ESC &lt COMPOSE ESC
 
+
+&lt {
+    quick-tap-ms = <300>;
+};
 
 / {
         macros {
@@ -167,15 +171,6 @@
                 quick-tap-ms = <0>;
                 flavor = "tap-preferred";
                 bindings = <&kp>, <&kp>;
-            };
-
-            rep: repeating_layer_tap {
-                compatible = "zmk,behavior-hold-tap";
-                label = "Repeating Hold-Tap";
-                #binding-cells = <2>;
-                tapping-term-ms = <200>;
-                quick-tap-ms = <300>;
-                bindings = <&mo>, <&kp>;
             };
 
             lte: layer_tab_exposee {
