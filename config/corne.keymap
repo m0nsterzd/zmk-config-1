@@ -29,7 +29,7 @@
 #define LT_H &lt SYMBOLS H
 #define LT_RET &lt FUN_NUM RET
 #define LT_SPACE &lt MOD_ARR SPACE
-#define LT_ESC &lt COMPOSE ESC
+#define LT_ESC &tyl COMPOSE ESC
 
 
 &lt {
@@ -180,6 +180,15 @@
                 tapping-term-ms = <200>;
                 bindings = <&mo>, <&wm_exposee_win>;
             };
+
+			tyl: typing_layer {
+			    compatible = "zmk,behavior-hold-tap";
+				label = "Prefer fluid typing of layered keys";
+				#binding-cells = <2>;
+				tapping-term-ms = <160>;
+				flavor = "hold-preferred";
+				bindings = <&mo>, <&kp>;
+			};
         };
 
         keymap {
