@@ -38,67 +38,67 @@
 
 / {
         macros {
-		    ZMK_MACRO(AE,
-			    wait-ms = <10>;
-				tap-ms = <20>;
-				bindings
-				    = <&macro_press &kp RALT>
+            ZMK_MACRO(AE,
+                wait-ms = <10>;
+                tap-ms = <20>;
+                bindings
+                    = <&macro_press &kp RALT>
                     , <&macro_tap &kp Q>
                     , <&macro_release &kp RALT>
                     ;
             )
 
-		    ZMK_MACRO(SZ,
-			    wait-ms = <10>;
-				tap-ms = <20>;
-				bindings
-				    = <&macro_press &kp RALT>
+            ZMK_MACRO(SZ,
+                wait-ms = <10>;
+                tap-ms = <20>;
+                bindings
+                    = <&macro_press &kp RALT>
                     , <&macro_tap &kp S>
                     , <&macro_release &kp RALT>
                     ;
             )
 
-			ZMK_MACRO(EE,
-			    wait-ms = <10>;
-				tap-ms = <20>;
-				bindings
-				    = <&macro_press &kp RALT>
+            ZMK_MACRO(EE,
+                wait-ms = <10>;
+                tap-ms = <20>;
+                bindings
+                    = <&macro_press &kp RALT>
                     , <&macro_tap &kp E>
                     , <&macro_release &kp RALT>
                     ;
             )
 
-			ZMK_MACRO(IE,
-			    wait-ms = <10>;
-				tap-ms = <20>;
-				bindings
-				    = <&macro_press &kp RALT>
+            ZMK_MACRO(IE,
+                wait-ms = <10>;
+                tap-ms = <20>;
+                bindings
+                    = <&macro_press &kp RALT>
                     , <&macro_tap &kp I>
                     , <&macro_release &kp RALT>
                     ;
             )
 
-			ZMK_MACRO(UE,
-			    wait-ms = <10>;
-				tap-ms = <20>;
-				bindings
-				    = <&macro_press &kp RALT>
+            ZMK_MACRO(UE,
+                wait-ms = <10>;
+                tap-ms = <20>;
+                bindings
+                    = <&macro_press &kp RALT>
                     , <&macro_tap &kp Y>
                     , <&macro_release &kp RALT>
                     ;
             )
 
-			ZMK_MACRO(OE,
-			    wait-ms = <10>;
-				tap-ms = <20>;
-				bindings
-				    = <&macro_press &kp RALT>
+            ZMK_MACRO(OE,
+                wait-ms = <10>;
+                tap-ms = <20>;
+                bindings
+                    = <&macro_press &kp RALT>
                     , <&macro_tap &kp P>
                     , <&macro_release &kp RALT>
                     ;
             )
 
-            wm_exposee_win: wm_exposee_win {
+            exposee_win: wm_win_exposee {
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Exposee";
                 #binding-cells = <0>;
@@ -111,7 +111,7 @@
                     ;
             };
 
-            wm_prev_desktop_win: wm_prev_desktop_win {
+            prev_desktop_win: wm_win_prev_desktop {
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Go To Previous Desktop";
                 #binding-cells = <0>;
@@ -126,7 +126,7 @@
                     ;
             };
 
-            wm_next_desktop_win: wm_next_desktop_win {
+            next_desktop_win: wm_win_next_desktop {
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Go To Next Desktop";
                 #binding-cells = <0>;
@@ -178,143 +178,140 @@
                 label = "Layer-tap the exposee macro";
                 #binding-cells = <2>;
                 tapping-term-ms = <200>;
-                bindings = <&mo>, <&wm_exposee_win>;
+                bindings = <&mo>, <&exposee_win>;
             };
 
-			tyl: typing_layer {
-			    compatible = "zmk,behavior-hold-tap";
-				label = "Prefer fluid typing of layered keys";
-				#binding-cells = <2>;
-				tapping-term-ms = <160>;
-				flavor = "hold-preferred";
-				bindings = <&mo>, <&kp>;
-			};
+            tyl: typing_layer {
+                compatible = "zmk,behavior-hold-tap";
+                label = "Prefer fluid typing of layered keys";
+                #binding-cells = <2>;
+                tapping-term-ms = <160>;
+                flavor = "hold-preferred";
+                bindings = <&mo>, <&kp>;
+            };
         };
 
         keymap {
-                compatible = "zmk,keymap";
+            compatible = "zmk,keymap";
 
-                colemak {
-// -----------------------------------------------------------------------------------------
-// |      |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ;  |      |
-// |      |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |      |
-// |      |  Z  |  X  |  C  |  D  |  V  |   |  K  |  H   |  ,  |  .  |  /  |      |
-//                    |  WM | BSP | TAB |   | ENT | SPC  | TAB |
+            colemak {
+                 bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |     Q      |     W      |     F      |     P      |     B      |          |     J      |     L      |     U      |     Y      |     ;      |
+//             |     A      |     R      |     S      |     T      |     G      |          |     M      |     N      |     E      |     I      |     O      |
+//             |     Z      |     X      |     C      |     D      |     V      |          |     K      |     H      |     ,      |     .      |     /      |
+//             --------------------------|     WM     |    BSP     |    TAB     |          |    ENT     |    SPC     |    ESC     |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &kp Q        &kp W        &kp F        &kp P        &kp B                  &kp J        &kp L        &kp U        &kp Y        &kp SEMI     xxxxx
+    xxxxx        &hrm LALT A  &hrm LGUI R  &hrm LCTRL S &lhs LSHFT T &kp G                  &kp M        &rhs RSHFT N &hrm RCTRL E &hrm RGUI I  &hrm LGUI O  xxxxx
+    xxxxx        &kp Z        &kp X        &kp C        LT_D         &kp V                  &kp K        LT_H         &kp COMMA    &kp DOT      &kp FSLH     xxxxx
+                                           &lte WM_WIN 0 LT_BSPC     LT_TAB                 LT_RET       LT_SPACE     LT_ESC
+                 >;
+             };
 
-                        bindings = <
-   &none     &kp Q &kp W &kp F &kp P &kp B   &kp J &kp L  &kp U     &kp Y   &kp SEMI    &none
-   &none     &hrm LALT A &hrm LGUI R &hrm LCTRL S &lhs LSHFT T &kp G   &kp M &rhs RSHFT N  &hrm RCTRL E     &hrm RGUI I   &hrm LGUI O       &none
-   &none     &kp Z &kp X &kp C LT_D  &kp V   &kp K LT_H   &kp COMMA &kp DOT &kp FSLH    &none
-             &lte WM_WIN 0 LT_BSPC LT_TAB  LT_RET LT_SPACE LT_ESC
-                        >;
-                };
+             mod_arr {
+                bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |            |            |            |            |            |          |            |            |            |            |            |
+//             |            |            |            |   CAPS     |            |          |   LEFT     |    DOWN    |     UP     |   RIGHT    |            |
+//             |            |            |            |   NAV      |            |          |            |            |            |            |            |
+//             --------------------------|            |   DEL      |            |          |            |            |            |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+    xxxxx        &none        &none        &none        &caps_word   &none                   &kp LEFT     &kp DOWN     &kp UP       &kp RIGHT    &none        xxxxx
+    xxxxx        &none        &none        &none        &mo NAVIGAT  &none                   &none        &none        &none        &none        &none        xxxxx
+                                           &none        &kp DEL      &none                   &none        &none        &none
+                >;
+            };
 
-                mod_arr {
-// -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |     |   |     |     |     |     |     |      |
-// |      |     |     |     | CAPS|     |   | LFT | DWN | UP  | RGT |     |      |
-// |      |     |     |     | NAV |     |   |     |     |     |     |     |      |
-//                    |     | DEL |     |   |     |     |     |
+            navigat {
+                bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |            |            |            |            |            |          |            |            |            |            |            |
+//             |            |            |            |            |            |          |    HOME    |   PG DN    |   PG UP    |    END     |            |
+//             |            |            |            |            |            |          |            |            |            |            |            |
+//             --------------------------|            |            |            |          |            |            |            |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+    xxxxx        &none        &none        &none        &none        &none                   &kp HOME     &kp PG_DN    &kp PG_UP    &kp END      &none        xxxxx
+    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+                                           &none        &none        &none                   &none        &none        &none
+                >;
+            };
 
-                        bindings = <
-   &none      &none       &none       &none       &none       &none         &none    &none    &none  &none     &none &none
-   &none      &none       &none       &none       &caps_word  &none         &kp LEFT &kp DOWN &kp UP &kp RIGHT &none &none
-   &none      &none       &none       &none       &mo NAVIGAT &none         &none    &none    &none  &none     &none &none
-                                      &none       &kp DEL     &none         &none    &none    &none
-                        >;
-                };
+            fun_num {
+                bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |            |     F4     |     F3     |     F2     |     F1     |          |            |     7      |     8      |     9      |     -      |
+//             |            |     F8     |     F7     |     F6     |     F5     |          |     '      |     4      |     5      |     6      |     =      |
+//             |            |     F12    |     F11    |     F10    |     F9     |          |     `      |     1      |     2      |     3      |     \      |
+//             --------------------------|            |            |            |          |     0      |     0      |     .      |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &none        &kp F4       &kp F3       &kp F2       &kp F1                  &none        &kp N7       &kp N8       &kp N9       &kp MINUS    xxxxx
+    xxxxx        &none        &kp F8       &kp F7       &kp F6       &kp F5                  &kp SQT      &kp N4       &kp N5       &kp N6       &kp EQUAL    xxxxx
+    xxxxx        &none        &kp F12      &kp F11      &kp F10      &kp F9                  &kp GRAVE    &kp N1       &kp N2       &kp N3       &kp BSLH     xxxxx
+                                           &none        &none        &none                   &kp N0       &kp N0       &kp DOT
+                >;
+            };
 
-                navigat {
-// -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |     |   |     |     |     |     |     |      |
-// |      |     |     |     |     |     |   | HOME| PGDN| PGUP| END |     |      |
-// |      |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    |     |     |     |   |     |     |     |
+            symbols {
+                bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |     @      |     #      |     $      |     %      |     ^      |          |     &      |     *      |     (      |     )      |     _      |
+//             |     !      |            |            |            |            |          |     "      |            |     [      |     ]      |     +      |
+//             |            |            |            |            |            |          |     ~      |            |     {      |     }      |     |      |
+//             --------------------------|            |            |            |          |            |            |            |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &kp AT       &kp HASH     &kp DLLR     &kp PRCNT    &kp CARET               &kp AMPS     &kp ASTRK    &kp LPAR     &kp RPAR     &kp UNDER    xxxxx
+    xxxxx        &kp EXCL     &none        &none        &none        &none                   &kp DQT      &none        &kp LBKT     &kp RBKT     &kp PLUS     xxxxx
+    xxxxx        &none        &none        &none        &none        &none                   &kp TILDE    &none        &kp LBRC     &kp RBRC     &kp PIPE     xxxxx
+                                           &none        &none        &none                   &none        &none        &none
+                >;
+            };
 
-                        bindings = <
-   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
-   &none      &none       &none       &none       &none       &none         &kp HOME &kp PG_DN &kp PG_UP &kp END &none &none
-   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
-                                      &none       &none       &none         &none    &none     &none
-                        >;
-                };
-
-                fun_num {
-// -----------------------------------------------------------------------------------------
-// |      |     | F4  | F3  | F2  | F1  |   |     | 7   | 8   | 9   | -   |      |
-// |      |     | F8  | F7  | F6  | F5  |   | '   | 4   | 5   | 6   | =   |      |
-// |      |     | F12 | F11 | F10 | F9  |   | `   | 1   | 2   | 3   | \   |      |
-//                    |     |     |     |   | 0   | 0   | .   |
-
-                        bindings = <
-   &none      &none       &kp F4       &kp F3       &kp F2       &kp F1         &none     &kp N7    &kp N8    &kp N9   &kp MINUS &none
-   &none      &none       &kp F8       &kp F7       &kp F6       &kp F5         &kp SQT   &kp N4    &kp N5    &kp N6   &kp EQUAL &none
-   &none      &none       &kp F12      &kp F11      &kp F10      &kp F9         &kp GRAVE &kp N1    &kp N2    &kp N3   &kp BSLH  &none
-                                       &none        &none        &none          &kp N0    &kp N0    &kp DOT
-
-                        >;
-                };
-
-                symbols {
-// -----------------------------------------------------------------------------------------
-// |      | @   | #   | $   | %   | ^   |   | &   | *   | (   | )   | _   |      |
-// |      | !   |     |     |     |     |   | "   |     | [   | ]   | +   |      |
-// |      |     |     |     |     |     |   | ~   |     | {   | }   | "|" |      |
-//                    |     |     |     |   |     |     |     |
-
-                        bindings = <
-   &none      &kp AT      &kp HASH    &kp DLLR    &kp PRCNT   &kp CARET     &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp UNDER &none
-   &none      &kp EXCL    &none       &none       &none       &none         &kp DQT   &none     &kp LBKT &kp RBKT &kp PLUS  &none
-   &none      &none       &none       &none       &none       &none         &kp TILDE &none     &kp LBRC &kp RBRC &kp PIPE  &none
-                                      &none       &none       &none         &none     &none     &none
-                        >;
-                };
-
-                compose {
+            compose {
+                bindings = <
 //             ------------------------------------------------------------------          ------------------------------------------------------------------
 //             |     Ä      |            |            |            |            |          |            |            |            |     Ü      |     Ö      |
 //             |            |            |     ß      |            |            |          |            |            |     É      |     Í      |            |
 //             |            |            |            |            |            |          |            |            |            |            |            |
 //             --------------------------|            |            |            |          |            |            |            |--------------------------
 //                                       ----------------------------------------          ---------------------------------------
-
-                    bindings = <
     xxxxx        &AE          &none        &none        &none        &none                   &none        &none        &none        &UE          &OE          xxxxx
     xxxxx        &none        &none        &SZ          &none        &none                   &none        &none        &EE          &IE          &none        xxxxx
     xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
                                            &none        &none        &none                   &none        &none        &none
-                    >;
-                };
+                >;
+            };
 
-                wm_win {
-// -----------------------------------------------------------------------------------------
-// |      |     |     |     |     |     |   |     |     |     |     |     |      |
-// |      |     |     |START|     |     |   |PRV_D|     |     |NXT_D|     |      |
-// |      |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    |     |     |     |   |     |     |     |
+            wm_win {
+                bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |            |            |            |            |            |          |            |            |            |            |            |
+//             |            |            |   START    |            |            |          |   PRV_D    |            |            |   NXT_D    |            |
+//             |            |            |            |            |            |          |            |            |            |            |            |
+//             --------------------------|            |            |            |          |            |            |            |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+    xxxxx        &none        &none        &kp LGUI     &none        &none                   &prev_desktop_win &none   &none        &next_desktop_win &none   xxxxx
+    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+                                           &none        &none        &none                   &none        &none        &none
+                >;
+            };
 
-                        bindings = <
-   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
-   &none      &none       &none       &kp LGUI    &none       &none         &wm_prev_desktop_win &none   &none   &wm_next_desktop_win &none &none
-   &none      &none       &none       &none       &none       &none         &none    &none     &none     &none   &none &none
-                                      &none       &none       &none         &none    &none     &none
-                        >;
-                };
-
-//		          <tmpl> {
+//            <tmpl> {
+//                bindings = <
 ////             ------------------------------------------------------------------          ------------------------------------------------------------------
 ////             |            |            |            |            |            |          |            |            |            |            |            |
 ////             |            |            |            |            |            |          |            |            |            |            |            |
 ////             |            |            |            |            |            |          |            |            |            |            |            |
 ////             --------------------------|            |            |            |          |            |            |            |--------------------------
 ////                                       ----------------------------------------          ---------------------------------------
-//
-//                        bindings = <
 //    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
 //    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
 //    xxxxx        &none        &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
 //                                           &none        &none        &none                   &none        &none        &none
-//                        >;
-//                };
+//                >;
+//            };
         };
 };
