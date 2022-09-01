@@ -23,7 +23,7 @@
 //  Layers
 //    Left
 #define LT_D &lt SYMBOLS D
-#define LT_SFT &lt MOD_ARR SPACE
+#define LT_SFT &lsk MOD_ARR LSHFT
 #define LT_BSPC &lt FUN_NUM BSPC
 //    Right
 #define LT_H &lt SYMBOLS H
@@ -179,6 +179,15 @@
                 #binding-cells = <2>;
                 tapping-term-ms = <200>;
                 bindings = <&mo>, <&exposee_win>;
+            };
+
+            lsk: layer_sticky_key {
+                compatible = "zmk,behavior-hold-tap";
+                label = "Layer-tap a sticky key";
+                #binding-cells = <2>;
+                tapping-term-ms = <200>;
+                flavor = "tap-preferred";
+                bindings = <&mo>, <&sk>;
             };
 
             tyl: typing_layer {
