@@ -212,7 +212,7 @@
 //             --------------------------|     WM     |    BSP     |    TAB     |          |    ENT     |    SPC     |    ESC     |--------------------------
 //                                       ----------------------------------------          ---------------------------------------
     xxxxx        &kp Q        &kp W        &kp F        &kp P        &kp B                  &kp J        &kp L        &kp U        &kp Y        &kp SEMI     xxxxx
-    xxxxx        &hrm LALT A  &hrm LGUI R  &hrm LCTRL S &lhs LSHFT T &kp G                  &kp M        &rhs RSHFT N &hrm RCTRL E &hrm RGUI I  &hrm LGUI O  xxxxx
+    xxxxx        &hrm LALT A  &hrm LGUI R  &hrm LCTRL S &hrm LSHFT T &kp G                  &kp M        &hrm RSHFT N &hrm RCTRL E &hrm RGUI I  &hrm LGUI O  xxxxx
     xxxxx        &kp Z        &kp X        &kp C        LT_D         &kp V                  &kp K        LT_H         &kp COMMA    &kp DOT      &kp FSLH     xxxxx
                                            &lte WM_WIN 0 LT_SFT      LT_BSPC                LT_RET       LT_SPACE     LT_ESC
                  >;
