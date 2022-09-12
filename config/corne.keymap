@@ -16,6 +16,7 @@
 #define SYMBOLS 4
 #define COMPOSE 5
 #define WM_WIN  6
+#define STENO   7
 
 // Keycodes
 #define xxxxx &none
@@ -251,12 +252,12 @@
             fun_num {
                 bindings = <
 //             ------------------------------------------------------------------          ------------------------------------------------------------------
-//             |            |     F4     |     F3     |     F2     |     F1     |          |            |     7      |     8      |     9      |     -      |
+//             |   steno    |     F4     |     F3     |     F2     |     F1     |          |            |     7      |     8      |     9      |     -      |
 //             |            |     F8     |     F7     |     F6     |     F5     |          |     '      |     4      |     5      |     6      |     =      |
 //             |            |     F12    |     F11    |     F10    |     F9     |          |     `      |     1      |     2      |     3      |     \      |
 //             --------------------------|            |            |            |          |     0      |     0      |     .      |--------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &none        &kp F4       &kp F3       &kp F2       &kp F1                  &none        &kp N7       &kp N8       &kp N9       &kp MINUS    xxxxx
+    xxxxx        &tog STENO   &kp F4       &kp F3       &kp F2       &kp F1                  &none        &kp N7       &kp N8       &kp N9       &kp MINUS    xxxxx
     xxxxx        &none        &kp F8       &kp F7       &kp F6       &kp F5                  &kp SQT      &kp N4       &kp N5       &kp N6       &kp EQUAL    xxxxx
     xxxxx        &none        &kp F12      &kp F11      &kp F10      &kp F9                  &kp GRAVE    &kp N1       &kp N2       &kp N3       &kp BSLH     xxxxx
                                            &none        &none        &none                   &kp N0       &kp N0       &kp DOT
@@ -308,6 +309,21 @@
                 >;
             };
 
+            steno {
+                bindings = <
+//             ------------------------------------------------------------------          ------------------------------------------------------------------
+//             |   steno    |            |            |            |            |          |            |            |            |            |            |
+//             |     S      |     T      |     P      |     H      |            |          |     *      |     F      |     P      |     L      |     T      |
+//             |     S      |     K      |     W      |     R      |            |          |     *      |     R      |     B      |     G      |     S      |
+//             --------------------------|            |            |            |          |            |            |            |--------------------------
+//                                       ----------------------------------------          ---------------------------------------
+    xxxxx        &tog STENO   &none        &none        &none        &none                   &none        &none        &none        &none        &none        xxxxx
+    xxxxx        &kp S        &kp T        &kp P        &kp H        &none                   &kp ASTRK    &kp F        &kp P        &kp L        &kp T        xxxxx
+    xxxxx        &kp S        &kp K        &kp W        &kp R        &none                   &kp ASTRK    &kp R        &kp B        &kp G        &kp S        xxxxx
+                                           &kp A        &kp O        &none                   &none        &kp E        &kp U
+                >;
+            };
+        };
 //            <tmpl> {
 //                bindings = <
 ////             ------------------------------------------------------------------          ------------------------------------------------------------------
@@ -322,5 +338,5 @@
 //                                           &none        &none        &none                   &none        &none        &none
 //                >;
 //            };
-        };
+//        };
 };
