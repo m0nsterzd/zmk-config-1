@@ -311,15 +311,15 @@
 
             steno {
                 bindings = <
-//             ------------------------------------------------------------------          ------------------------------------------------------------------
-//             |   steno    |            |            |            |            |          |            |            |            |            | arpeggiate |
-//             |     Q      |     W      |     E      |     R      |     T      |          |     Y      |     U      |     I      |     O      |     P      |
-//             |     A      |     S      |     D      |     F      |     G      |          |     H      |     J      |     K      |     L      |     ;      |
-//             --------------------------|     C      |     V      |            |          |            |     N      |     M      |--------------------------
+//             ------------------------------------------------------------------          -------------------------------------------------------------------------------
+//             |   steno    |            |            |            |            |          |            |            |            |            |            | arpeggiate |
+//             |     Q      |     W      |     E      |     R      |     T      |          |     Y      |     U      |     I      |     O      |     P      |     [      |
+//             |     A      |     S      |     D      |     F      |     G      |          |     H      |     J      |     K      |     L      |     ;      |     '      |
+//             --------------------------|     C      |     V      |            |          |            |     N      |     M      |---------------------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &tog STENO   &none        &none        &none        &none                   &none        &none        &none        &none        &kp SPACE    xxxxx
-    xxxxx        &kp Q        &kp W        &kp E        &kp R        &kp T                   &kp Y        &kp U        &kp I        &kp O        &kp P        xxxxx
-    xxxxx        &kp A        &kp S        &kp D        &kp F        &kp G                   &kp H        &kp J        &kp K        &kp L        &kp SEMI     xxxxx
+    xxxxx        &tog STENO   &none        &none        &none        &none                   &none        &none        &none        &none        &none        &kp SPACE
+    xxxxx        &kp Q        &kp W        &kp E        &kp R        &kp T                   &kp Y        &kp U        &kp I        &kp O        &kp P        &kp RBKT
+    xxxxx        &kp A        &kp S        &kp D        &kp F        &kp G                   &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
                                            &kp C        &kp V        &none                   &none        &kp N        &kp M
                 >;
             };
