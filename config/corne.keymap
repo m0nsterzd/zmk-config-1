@@ -99,11 +99,15 @@
                     ;
             )
 
-			ZMK_MACRO(ploggle,
+            ZMK_MACRO(ploggle,
+                wait-ms = <10>;
+                tap-ms = <20>;
                 bindings
-				    = <&tog STENO>
-					;
-			)
+                    = <&tog STENO>
+                    , <&macro_press &kp E &kp R &kp F &kp V &kp O &kp L>
+                    , <&macro_release &kp E &kp R &kp F &kp V &kp O &kp L>
+                    ;
+            )
 
             exposee_win: wm_win_exposee {
                 compatible = "zmk,behavior-macro";
