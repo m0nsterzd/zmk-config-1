@@ -206,13 +206,13 @@
 
             colemak {
                  bindings = <
-//             ------------------------------------------------------------------          ------------------------------------------------------------------
-//             |     Q      |     W      |     F      |     P      |     B      |          |     J      |     L      |     U      |     Y      |     ;      |
-//             |     A      |     R      |     S      |     T      |     G      |          |     M      |     N      |     E      |     I      |     O      |
-//             |     Z      |     X      |     C      |     D      |     V      |          |     K      |     H      |     ,      |     .      |     /      |
-//             --------------------------|     WM     |    BSP     |    TAB     |          |    ENT     |    SPC     |    ESC     |--------------------------
+//             ------------------------------------------------------------------          -------------------------------------------------------------------------------
+//             |     Q      |     W      |     F      |     P      |     B      |          |     J      |     L      |     U      |     Y      |     ;      |   STENO    |
+//             |     A      |     R      |     S      |     T      |     G      |          |     M      |     N      |     E      |     I      |     O      |            |
+//             |     Z      |     X      |     C      |     D      |     V      |          |     K      |     H      |     ,      |     .      |     /      |            |
+//             --------------------------|     WM     |    BSP     |    TAB     |          |    ENT     |    SPC     |    ESC     |---------------------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &kp Q        &kp W        &kp F        &kp P        &kp B                  &kp J        &kp L        &kp U        &kp Y        &kp SEMI     xxxxx
+    xxxxx        &kp Q        &kp W        &kp F        &kp P        &kp B                  &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &tog STENO
     xxxxx        &hrm LALT A  &hrm LGUI R  &hrm LCTRL S &hrm LSHFT T &kp G                  &kp M        &hrm RSHFT N &hrm RCTRL E &hrm RGUI I  &hrm LGUI O  xxxxx
     xxxxx        &kp Z        &kp X        &kp C        LT_D         &kp V                  &kp K        LT_H         &kp COMMA    &kp DOT      &kp FSLH     xxxxx
                                            &lte WM_WIN 0 LT_SFT      LT_BSPC                LT_RET       LT_SPACE     &sl COMPOSE
@@ -252,12 +252,12 @@
             fun_num {
                 bindings = <
 //             ------------------------------------------------------------------          ------------------------------------------------------------------
-//             |   steno    |     F4     |     F3     |     F2     |     F1     |          |            |     7      |     8      |     9      |     -      |
+//             |            |     F4     |     F3     |     F2     |     F1     |          |            |     7      |     8      |     9      |     -      |
 //             |            |     F8     |     F7     |     F6     |     F5     |          |     '      |     4      |     5      |     6      |     =      |
 //             |            |     F12    |     F11    |     F10    |     F9     |          |     `      |     1      |     2      |     3      |     \      |
 //             --------------------------|            |            |            |          |     0      |     0      |     .      |--------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &tog STENO   &kp F4       &kp F3       &kp F2       &kp F1                  &none        &kp N7       &kp N8       &kp N9       &kp MINUS    xxxxx
+    xxxxx        &none        &kp F4       &kp F3       &kp F2       &kp F1                  &none        &kp N7       &kp N8       &kp N9       &kp MINUS    xxxxx
     xxxxx        &none        &kp F8       &kp F7       &kp F6       &kp F5                  &kp SQT      &kp N4       &kp N5       &kp N6       &kp EQUAL    xxxxx
     xxxxx        &none        &kp F12      &kp F11      &kp F10      &kp F9                  &kp GRAVE    &kp N1       &kp N2       &kp N3       &kp BSLH     xxxxx
                                            &none        &none        &none                   &kp N0       &kp N0       &kp DOT
@@ -312,12 +312,12 @@
             steno {
                 bindings = <
 //             ------------------------------------------------------------------          -------------------------------------------------------------------------------
-//             |   steno    |            |            |            |            |          |            |            |            |            |            | arpeggiate |
+//             |            |            |            |            | ARPEGGIATE |          |            |            |            |            |            |   STENO    |
 //             |     Q      |     W      |     E      |     R      |     T      |          |     Y      |     U      |     I      |     O      |     P      |     [      |
 //             |     A      |     S      |     D      |     F      |     G      |          |     H      |     J      |     K      |     L      |     ;      |     '      |
 //             --------------------------|     C      |     V      |            |          |            |     N      |     M      |---------------------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &tog STENO   &none        &none        &none        &none                   &none        &none        &none        &none        &none        &kp SPACE
+    xxxxx        &none        &none        &none        &none        &kp SPACE               &none        &none        &none        &none        &none        &tog STENO
     xxxxx        &kp Q        &kp W        &kp E        &kp R        &kp T                   &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LBKT
     xxxxx        &kp A        &kp S        &kp D        &kp F        &kp G                   &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
                                            &none        &kp C        &kp V                   &kp N        &kp M        &none
