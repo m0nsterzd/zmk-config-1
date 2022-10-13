@@ -99,6 +99,12 @@
                     ;
             )
 
+			ZMK_MACRO(ploggle,
+                bindings
+				    = <&tog STENO>
+					;
+			)
+
             exposee_win: wm_win_exposee {
                 compatible = "zmk,behavior-macro";
                 label = "Win10 Exposee";
@@ -207,12 +213,12 @@
             colemak {
                  bindings = <
 //             ------------------------------------------------------------------          -------------------------------------------------------------------------------
-//             |     Q      |     W      |     F      |     P      |     B      |          |     J      |     L      |     U      |     Y      |     ;      |   STENO    |
+//             |     Q      |     W      |     F      |     P      |     B      |          |     J      |     L      |     U      |     Y      |     ;      |  PLOGGLE   |
 //             |     A      |     R      |     S      |     T      |     G      |          |     M      |     N      |     E      |     I      |     O      |            |
 //             |     Z      |     X      |     C      |     D      |     V      |          |     K      |     H      |     ,      |     .      |     /      |            |
 //             --------------------------|     WM     |    BSP     |    TAB     |          |    ENT     |    SPC     |    ESC     |---------------------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &kp Q        &kp W        &kp F        &kp P        &kp B                  &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &tog STENO
+    xxxxx        &kp Q        &kp W        &kp F        &kp P        &kp B                  &kp J        &kp L        &kp U        &kp Y        &kp SEMI     &ploggle
     xxxxx        &hrm LALT A  &hrm LGUI R  &hrm LCTRL S &hrm LSHFT T &kp G                  &kp M        &hrm RSHFT N &hrm RCTRL E &hrm RGUI I  &hrm LGUI O  xxxxx
     xxxxx        &kp Z        &kp X        &kp C        LT_D         &kp V                  &kp K        LT_H         &kp COMMA    &kp DOT      &kp FSLH     xxxxx
                                            &lte WM_WIN 0 LT_SFT      LT_BSPC                LT_RET       LT_SPACE     &sl COMPOSE
@@ -312,12 +318,12 @@
             steno {
                 bindings = <
 //             ------------------------------------------------------------------          -------------------------------------------------------------------------------
-//             |            |            |            |            | ARPEGGIATE |          |            |            |            |            |            |   STENO    |
+//             |            |            |            |            | ARPEGGIATE |          |            |            |            |            |            |   PLOGGLE  |
 //             |     Q      |     W      |     E      |     R      |     T      |          |     Y      |     U      |     I      |     O      |     P      |     [      |
 //             |     A      |     S      |     D      |     F      |     G      |          |     H      |     J      |     K      |     L      |     ;      |     '      |
 //             --------------------------|     C      |     V      |            |          |            |     N      |     M      |---------------------------------------
 //                                       ----------------------------------------          ---------------------------------------
-    xxxxx        &none        &none        &none        &none        &kp SPACE               &none        &none        &none        &none        &none        &tog STENO
+    xxxxx        &none        &none        &none        &none        &kp SPACE               &none        &none        &none        &none        &none        &ploggle
     xxxxx        &kp Q        &kp W        &kp E        &kp R        &kp T                   &kp Y        &kp U        &kp I        &kp O        &kp P        &kp LBKT
     xxxxx        &kp A        &kp S        &kp D        &kp F        &kp G                   &kp H        &kp J        &kp K        &kp L        &kp SEMI     &kp SQT
                                            &none        &kp C        &kp V                   &kp N        &kp M        &none
