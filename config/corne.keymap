@@ -38,7 +38,7 @@
 };
 
 &nice_view_spi {
-    cs-gpios = <&pro_micro 9 GPIO_ACTIVE_HIGH>;
+    cs-gpios = <&pro_micro 1 GPIO_ACTIVE_HIGH>;
 };
 
 / {
